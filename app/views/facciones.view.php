@@ -1,0 +1,28 @@
+<?php
+require_once 'libs/smarty/libs/Smarty.class.php';
+
+class faccionesView{
+
+    private $smarty;
+
+    public function __construct(){
+        $this->smarty = new Smarty(); //inicializo smarty
+    }
+
+    function showFacciones($faccionesbyid, $logged){
+        $this->smarty->assign('faccionesbyid', $faccionesbyid);
+        $this->smarty->assign('logged', $logged);
+        $this->smarty->display('tableFacc.tpl');
+        }
+
+    function showFormEdit(){
+        $this->smarty->display('templates/formEditFacc.tpl');
+    }
+    function showEdit($faccionesbyid){
+        $this->smarty->assign('faccionesbyid', $faccionesbyid);
+      
+    }
+
+
+    
+}
