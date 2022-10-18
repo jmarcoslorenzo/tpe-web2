@@ -36,9 +36,6 @@
             <li class="nav-item">
             <a class="nav-link" href="facciones">Facciones</a>
             </li>
-            <li class="nav-item">
-            <a class="nav-link" href="filter">Filter</a>
-            </li>
         </ul>
         </div>
     </div>

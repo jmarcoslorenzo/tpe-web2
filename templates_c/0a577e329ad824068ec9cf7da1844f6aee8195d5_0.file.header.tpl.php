@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-17 21:24:18
+/* Smarty version 4.2.1, created on 2022-10-18 04:56:49
   from 'C:\xampp\htdocs\tpe-web2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634dabe2316b03_86102015',
+  'unifunc' => 'content_634e15f1c6ff80_03744334',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0a577e329ad824068ec9cf7da1844f6aee8195d5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpe-web2\\templates\\header.tpl',
-      1 => 1666034654,
+      1 => 1666061808,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_634dabe2316b03_86102015 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634e15f1c6ff80_03744334 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,9 +62,6 @@ function content_634dabe2316b03_86102015 (Smarty_Internal_Template $_smarty_tpl)
             </li>
             <li class="nav-item">
             <a class="nav-link" href="facciones">Facciones</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="filter">Filter</a>
             </li>
         </ul>
         </div>

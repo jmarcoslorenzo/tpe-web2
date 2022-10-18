@@ -9,8 +9,8 @@ class faccionesView{
         $this->smarty = new Smarty(); //inicializo smarty
     }
 
-    function showFacciones($faccionesbyid, $logged){
-        $this->smarty->assign('faccionesbyid', $faccionesbyid);
+    function showFacciones($facciones, $logged){
+        $this->smarty->assign('facciones', $facciones);
         $this->smarty->assign('logged', $logged);
         $this->smarty->display('tableFacc.tpl');
         }
@@ -23,6 +23,11 @@ class faccionesView{
       
     }
 
+    function showResultFilter($campeonandfaccion){
+        $this->smarty->assign('campeonandfaccion', $campeonandfaccion);
+        $this->smarty->display('campeonFilter.tpl');
 
-    
+    }
+
+
 }

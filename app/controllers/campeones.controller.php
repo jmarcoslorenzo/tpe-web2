@@ -16,9 +16,9 @@ class campeonesController{
         }
 
         public function showCampeones(){
-            $campeon = $this->model->getCampeones();
-            $logged = $this->helper->logged();
-            $this->view->showCampeones($campeon, $logged);
+          $campeones = $this->model->getCampeones();
+          $logged = $this->helper->logged();
+          $this->view->showCampeones($campeones, $logged);
         }
 
         public function showDetailsCampeones($id){

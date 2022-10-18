@@ -16,10 +16,11 @@ class faccionesController{
         }
 
         public function showFacciones(){
-            $faccionesbyid = $this->model->getFacciones();
             $logged = $this->helper->logged();
-            $this->view->showFacciones($faccionesbyid, $logged);
+            $facciones = $this->model->getFacciones();
+            $this->view->showFacciones($facciones, $logged);
         }
+
         function addFacciones() {
             // TODO: validar entrada de datos
            
@@ -52,6 +53,14 @@ class faccionesController{
             $id_faccion = $this->model->updateFaccion($faccion, $dominio, $id_faccion);
             header("Location: " . BASE_URL . "facciones");
           }
+        }
+
+        function filter(){
+            if(isset ($_POST['selected'])&&(!empty($_POST['selected']))){
+                $selected = $_POST['selected'];
+                $campeonandfaccion = $this->model->getCampeonAndFaccion($selected);
+                $this->view->showResultFilter($campeonandfaccion);
+            }
         }
 
      

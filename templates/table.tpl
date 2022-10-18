@@ -14,16 +14,16 @@
     </tr>
   </thead>
   <tbody>
-  {foreach from=$campeon item=$campeones}
+  {foreach from=$campeones item=$campeon}
     <tr>
-    <td>{$campeones->id}</td>
-    <td>{$campeones->campeon}</td>
-    <td>{$campeones->rareza}</td>
-    <td>{$campeones->afinidad}</td>
-    <td><a href='detalle/{$campeones->id}' type='button'>Detalles</a></td>
+    <td>{$campeon->id}</td>
+    <td>{$campeon->campeon}</td>
+    <td>{$campeon->rareza}</td>
+    <td>{$campeon->afinidad}</td>
+    <td><a href='detalle/{$campeon->id}' type='button'>Detalles</a></td>
     {if $logged}
-      <td><a href='formEdit/{$campeones->id}' type='button'>Editar</a></td>
-      <td><a href='delete/{$campeones->id}' type='button'>Eliminar</a></td>
+      <td><a href='formEdit/{$campeon->id}' type='button'>Editar</a></td>
+      <td><a href='delete/{$campeon->id}' type='button'>Eliminar</a></td>
     {/if}
 
     </tr>
@@ -31,15 +31,6 @@
   </tbody>
 </table>
 
-<form method="POST" action="filter">
-    <h3> Selecciona una faccion para filtrar sus campeones</h3>
-        <select name="selected" class="form-selected">                                              
-            {foreach from=$facciones item=$faccion }
-                <option value="{$faccion->id_faccion}">{$faccion->faccion}</option>
-            {/foreach}
-            </select>
-        <button type="submit"> Elegir </button>
-    </form>
 
 {include file="formAddCampeon.tpl"}
 {include file="footer.tpl"}

@@ -10,8 +10,8 @@ class campeonView{
     }
 
 
-    function showCampeones($campeon, $logged){
-        $this->smarty->assign('campeon', $campeon);
+    function showCampeones($campeones, $logged){
+        $this->smarty->assign('campeones', $campeones);
         $this->smarty->assign('logged', $logged);
         $this->smarty->display('table.tpl');
     }
