@@ -17,6 +17,7 @@
   {foreach from=$campeones item=$campeon}
     <tr>
     <td>{$campeon->id}</td>
+    <td>{$campeon->id_faccion_fk}</td>
     <td>{$campeon->campeon}</td>
     <td>{$campeon->rareza}</td>
     <td>{$campeon->afinidad}</td>

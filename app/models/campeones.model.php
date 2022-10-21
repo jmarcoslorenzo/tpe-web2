@@ -4,7 +4,7 @@ class campeonModel {
     private $db;
 
     public function __construct(){
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_web2;charset=utf8','root','');
+        $this->db = new PDO('mysql:host=localhost;'.'dbname=web2;charset=utf8','root','');
     }
 
     function getCampeones(){
@@ -14,9 +14,9 @@ class campeonModel {
         $campeones = $query->fetchAll(PDO::FETCH_OBJ);
         return $campeones;
     }
-    public function insertCampeones($campeon, $rareza, $afinidad) {
-        $query = $this->db->prepare("INSERT INTO campeones (campeon, rareza, afinidad) VALUES (?, ?, ?)");
-        $query->execute([$campeon, $rareza, $afinidad]);
+    public function insertCampeones($id_faccion_fk, $campeon, $rareza, $afinidad) {
+        $query = $this->db->prepare("INSERT INTO campeones (id_faccion_fk, campeon, rareza, afinidad) VALUES (?, ?, ?, ?)");
+        $query->execute([$id_faccion_fk, $campeon, $rareza, $afinidad]);
 
         return $this->db->lastInsertId();
     }

@@ -1,6 +1,10 @@
 {if $logged}
 <form class="form" action="add" method="POST">
 <div class="mb-3">
+<label class="form-label">ID Campeon</label>
+<input type="text" name="id_faccion_fk" class="form-control">
+</div>
+<div class="mb-3">
 <label class="form-label">Campeón</label>
 <input type="text" name="campeon" class="form-control">
 </div>

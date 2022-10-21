@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-18 04:56:52
+/* Smarty version 4.2.1, created on 2022-10-21 16:07:26
   from 'C:\xampp\htdocs\tpe-web2\templates\table.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634e15f417e9e6_66339318',
+  'unifunc' => 'content_6352a79ee83c62_80116702',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a740ecd1e69adba18032b2ca8e5dcc5f095851d5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpe-web2\\templates\\table.tpl',
-      1 => 1666061662,
+      1 => 1666361200,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_634e15f417e9e6_66339318 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6352a79ee83c62_80116702 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -49,6 +49,8 @@ $_smarty_tpl->tpl_vars['campeon']->do_else = false;
 ?>
     <tr>
     <td><?php echo $_smarty_tpl->tpl_vars['campeon']->value->id;?>
+</td>
+    <td><?php echo $_smarty_tpl->tpl_vars['campeon']->value->id_faccion_fk;?>
 </td>
     <td><?php echo $_smarty_tpl->tpl_vars['campeon']->value->campeon;?>
 </td>

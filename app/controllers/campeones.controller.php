@@ -30,13 +30,13 @@ class campeonesController{
 
         function addCampeones() {
           // TODO: validar entrada de datos
-         
-    
+          $id_faccion_fk = $_POST['id_faccion_fk'];
           $campeon = $_POST['campeon'];
           $rareza = $_POST['rareza'];
           $afinidad = $_POST['afinidad'];
+          
     
-          $this->model->insertCampeones($campeon, $rareza, $afinidad);
+          $this->model->insertCampeones($id_faccion_fk, $campeon, $rareza, $afinidad);
     
           header("Location: " . BASE_URL. "campeones"); 
       }

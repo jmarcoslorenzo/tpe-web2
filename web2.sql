@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2022 at 01:29 AM
+-- Generation Time: Oct 21, 2022 at 04:16 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_web2`
+-- Database: `web2`
 --
 
 -- --------------------------------------------------------
@@ -29,24 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `campeones` (
   `id` int(11) NOT NULL,
-  `campeon` varchar(50) NOT NULL,
-  `rareza` varchar(50) NOT NULL,
-  `afinidad` varchar(50) NOT NULL
+  `id_faccion_fk` int(11) NOT NULL,
+  `campeon` varchar(200) NOT NULL,
+  `rareza` varchar(200) NOT NULL,
+  `afinidad` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `campeones`
 --
 
-INSERT INTO `campeones` (`id`, `campeon`, `rareza`, `afinidad`) VALUES
-(1, 'Mediadora', 'Legendario', 'Vacio'),
-(2, 'Trunda Giltmallet', 'Legendario', 'Magia'),
-(3, 'Sethallia', 'Legendario', 'Magia'),
-(4, 'Kael', 'Raro', 'Magia'),
-(5, 'Andryssia', 'Epico', 'Vacio'),
-(6, 'Lissandra', 'Legendario', 'Spiritu'),
-(7, 'Errol', 'Legendario', 'Fuerza'),
-(16, 'Skullcrown', 'Epico', 'Vacio');
+INSERT INTO `campeones` (`id`, `id_faccion_fk`, `campeon`, `rareza`, `afinidad`) VALUES
+(1, 1, 'Mediadora', 'Legendario', 'Vacio'),
+(2, 3, 'Martyr', 'Legendario', 'Espiritu'),
+(6, 3, 'Errol', 'Legendario', 'Fuerza');
 
 -- --------------------------------------------------------
 
@@ -56,8 +52,8 @@ INSERT INTO `campeones` (`id`, `campeon`, `rareza`, `afinidad`) VALUES
 
 CREATE TABLE `facciones` (
   `id_faccion` int(11) NOT NULL,
-  `faccion` varchar(50) NOT NULL,
-  `dominio` varchar(50) NOT NULL
+  `faccion` varchar(200) NOT NULL,
+  `dominio` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -66,8 +62,9 @@ CREATE TABLE `facciones` (
 
 INSERT INTO `facciones` (`id_faccion`, `faccion`, `dominio`) VALUES
 (1, 'Altos Elfos', 'Alianza Teleriana'),
-(2, 'Enanos', 'Union Niresana'),
-(16, 'Aparecidos', 'Corrompidos');
+(2, 'Hidalgos', 'Alianza Teleriana'),
+(3, 'Orden Sagrada', 'Alianza Teleriana'),
+(4, 'Barbaros', 'Alianza Teleriana');
 
 -- --------------------------------------------------------
 
@@ -78,7 +75,7 @@ INSERT INTO `facciones` (`id_faccion`, `faccion`, `dominio`) VALUES
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `password` varchar(250) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -86,7 +83,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `email`, `password`) VALUES
-(1, 'jmlorenzo1993@gmail.com', '$2y$10$Q2nppXaNBkRJVY84vHEf1OPkBEKuk1vZ/VFheZor2sO.pdcQHVy66');
+(1, 'jmlorenzo1993@gmail.com', '$2y$10$UP7B9ykBPb/QM0ufWkG6deGWNmJjKf/YhP7lELVfoS2pwJAGmTfBq');
 
 --
 -- Indexes for dumped tables
@@ -96,7 +93,8 @@ INSERT INTO `usuarios` (`id`, `email`, `password`) VALUES
 -- Indexes for table `campeones`
 --
 ALTER TABLE `campeones`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_faccion_fk` (`id_faccion_fk`);
 
 --
 -- Indexes for table `facciones`
@@ -108,8 +106,7 @@ ALTER TABLE `facciones`
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -119,13 +116,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `campeones`
 --
 ALTER TABLE `campeones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `facciones`
---
-ALTER TABLE `facciones`
-  MODIFY `id_faccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
@@ -138,10 +129,10 @@ ALTER TABLE `usuarios`
 --
 
 --
--- Constraints for table `facciones`
+-- Constraints for table `campeones`
 --
-ALTER TABLE `facciones`
-  ADD CONSTRAINT `facciones_ibfk_1` FOREIGN KEY (`id_faccion`) REFERENCES `campeones` (`id`);
+ALTER TABLE `campeones`
+  ADD CONSTRAINT `campeones_ibfk_1` FOREIGN KEY (`id_faccion_fk`) REFERENCES `facciones` (`id_faccion`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
