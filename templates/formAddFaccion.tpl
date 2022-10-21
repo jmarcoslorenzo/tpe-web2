@@ -1,6 +1,10 @@
 {if $logged}
     <form class="form" action="addFacciones" method="POST">
     <div class="mb-3">
+    <label class="form-label">ID Facción</label>
+    <input type="text" name="id_faccion" class="form-control">
+    </div>
+    <div class="mb-3">
     <label class="form-label">Facción</label>
     <input type="text" name="faccion" class="form-control">
     </div>
