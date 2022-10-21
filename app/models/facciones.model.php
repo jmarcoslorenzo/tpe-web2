@@ -48,7 +48,7 @@ class faccionesModel{
     }
 
     function getCampeonAndFaccion($selected){
-        $query = $this->db->prepare("SELECT * FROM campeones a INNER JOIN  facciones b ON a.id = b.id_faccion WHERE a.id=? ");
+        $query = $this->db->prepare("SELECT * FROM campeones a INNER JOIN  facciones b ON a.id_faccion_fk = b.id_faccion WHERE a.id_faccion_fk=?");
         $query->execute(array($selected));
         $campeonandfaccion = $query->fetchAll(PDO::FETCH_OBJ);
 
